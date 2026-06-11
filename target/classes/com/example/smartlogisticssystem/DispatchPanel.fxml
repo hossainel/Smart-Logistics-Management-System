@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://fxml.com/1" fx:controller="com.example.smartlogisticssystem.controller.DispatchController">
+    <children>
+        <HBox spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <VBox prefWidth="260.0" spacing="12.0" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 6;">
+                    <children>
+                        <Label text="Schedule Active Run" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Assign Transport Vehicle ID:" />
+                                <TextField fx:id="vehicleIdField" promptText="Enter asset numeric ID..." prefHeight="30.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Assign Fleet Driver ID:" />
+                                <TextField fx:id="driverIdField" promptText="Enter driver numeric ID..." prefHeight="30.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Origin Station ID:" />
+                                <TextField fx:id="originIdField" promptText="Starting node ID..." prefHeight="30.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Destination Hub ID:" />
+                                <TextField fx:id="destinationIdField" promptText="Ending node ID..." prefHeight="30.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Departure (YYYY-MM-DD HH:MM:SS):" />
+                                <TextField fx:id="departureTimeField" promptText="Timestamp pattern..." prefHeight="30.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Est. Arrival (YYYY-MM-DD HH:MM:SS):" />
+                                <TextField fx:id="arrivalTimeField" promptText="Timestamp pattern..." prefHeight="30.0" />
+                            </children>
+                        </VBox>
+                        <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleCreateDispatch" prefHeight="35.0" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" text="Authorize Run Manifest" />
+                    </children>
+                </VBox>
+
+                <VBox HBox.hgrow="ALWAYS" spacing="10.0">
+                    <children>
+                        <Label text="Active Fleet Route Runs &amp; Dispatch Schedules" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="dispatchTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colDispatchId" prefWidth="70.0" text="Manifest ID" />
+                                <TableColumn fx:id="colVehicleId" prefWidth="80.0" text="Vehicle ID" />
+                                <TableColumn fx:id="colDriverId" prefWidth="75.0" text="Driver ID" />
+                                <TableColumn fx:id="colRoute" prefWidth="120.0" text="Route Path (O → D)" />
+                                <TableColumn fx:id="colStatus" prefWidth="110.0" text="Run Status" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

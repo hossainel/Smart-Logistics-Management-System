@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://fxml.com/1" fx:controller="com.example.smartlogisticssystem.controller.TrackingController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Audit Core Tracking Logs" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label text="Verify step-by-step history trails of items across physical hubs" textFill="#7f8c8d" />
+                    </children>
+                </VBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 6;">
+                    <children>
+                        <Label text="Enter Tracking Reference ID:">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="trackingIdField" prefHeight="35.0" prefWidth="280.0" promptText="e.g., TRK-B28C1A9F" />
+                        <Button mnemonicParsing="false" onAction="#trackParcel" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-weight: bold;" text="Fetch Trail" />
+                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS" spacing="10.0">
+                            <children>
+                                <Label text="Current State Status:" textFill="#7f8c8d" />
+                                <Label fx:id="statusLabel" text="Awaiting Input..." textFill="#d35400">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets right="15.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </HBox>
+
+                <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="Historical Scan Checkpoints Trail Timeline" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="transitLogsTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colTime" prefWidth="180.0" text="Scanner Timestamp" />
+                                <TableColumn fx:id="colStatus" prefWidth="200.0" text="Checkpoint Action Status" />
+                                <TableColumn fx:id="colRemarks" prefWidth="390.0" text="Operational Transit Flags / Remarks" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
